@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 74626214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 584503449}
+        m_TargetAssemblyTypeName: T_MainMenuButtons, Assembly-CSharp
+        m_MethodName: StartServer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &74626214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +612,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 471313552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 584503449}
+        m_TargetAssemblyTypeName: T_MainMenuButtons, Assembly-CSharp
+        m_MethodName: StartHost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &471313552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,7 +1250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2045977479}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 584503449}
+        m_TargetAssemblyTypeName: T_MainMenuButtons, Assembly-CSharp
+        m_MethodName: StartClient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2045977479
 MonoBehaviour:
   m_ObjectHideFlags: 0
