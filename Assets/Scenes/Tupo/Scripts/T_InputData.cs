@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class T_InputData
 {
+    public int Tick;
     public Vector2 MoveInput;
 
 }
