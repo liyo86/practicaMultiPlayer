@@ -12,7 +12,7 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
     [SerializeField]
     private GameObject _playerPrefab;
 
-    private Dictionary<PlayerRef, NetworkObject> _players;
+    private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
 
     private NetworkRunner _runner;
 
