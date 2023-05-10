@@ -116,6 +116,11 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
         StartGame(GameMode.Host);
     }
 
+    public void StartClient()
+    {
+        StartGame(GameMode.Client);
+    }
+
     private async void StartGame(GameMode mode)
     {
         _buttonCG.interactable = false;
