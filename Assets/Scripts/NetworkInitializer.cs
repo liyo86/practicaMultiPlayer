@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
 {
+    [Header("References")]
+    [SerializeField]
+    private NetworkPrefabRef _playerPrefab;
     [SerializeField]
     private CanvasGroup _buttonCG;
-    [SerializeField]
-    private GameObject _playerPrefab;
 
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
 
@@ -50,7 +51,15 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
+        var data = new InputStructure();
+        float xMove = Input.GetAxis("Horizontal");
+        float yMove = Input.GetAxis("Vertical");
 
+        data.moveDirection = new Vector2(xMove, yMove);
+
+        data.Jump = false;
+
+        input.Set(data);
     }
 
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
