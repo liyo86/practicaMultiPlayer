@@ -27,8 +27,9 @@ public class NetworkBullet : NetworkBehaviour
             Runner.Despawn(Object);
             return;
         }
+
+        Vector3 direction = transform.position.x > 0f ? -transform.right : transform.right;
             
-            
-        transform.Translate(transform.right * _bulletSpeed * Runner.DeltaTime);
+        transform.Translate(direction * _bulletSpeed * Runner.DeltaTime);
     }
 }
