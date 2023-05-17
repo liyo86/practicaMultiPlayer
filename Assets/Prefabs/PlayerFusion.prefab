@@ -132,7 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   _speed: 10
-  _character: {fileID: 0}
+  _character: {fileID: 5537530134853701566}
+  _bulletPrefab: {fileID: 4952383074136369867, guid: 78a7d20b36a3c45569adbcc94677a5a4, type: 3}
 --- !u!114 &-2198148201864999914
 MonoBehaviour:
   m_ObjectHideFlags: 0

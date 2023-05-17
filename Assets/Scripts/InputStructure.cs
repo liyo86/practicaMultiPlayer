@@ -5,4 +5,5 @@ public struct InputStructure : INetworkInput
 {
     public Vector2 moveDirection;
     public NetworkBool isJumping;
+    public NetworkBool isShooting;
 }
