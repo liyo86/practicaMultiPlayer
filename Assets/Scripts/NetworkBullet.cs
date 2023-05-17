@@ -28,7 +28,7 @@ public class NetworkBullet : NetworkBehaviour
             return;
         }
 
-        Vector3 direction = transform.position.x > 0f ? -transform.right : transform.right;
+        Vector3 direction = transform.position.x >= 0f ? -transform.right : transform.right;
             
         transform.Translate(direction * _bulletSpeed * Runner.DeltaTime);
     }
