@@ -7,7 +7,9 @@ public class NetworkBullet : NetworkBehaviour
 {
     [SerializeField] private float _bulletSpeed = 5f;
     [SerializeField] private float _timeLiving = 5f;
-    
+
+    private Vector3 _direction;
+
     private TickTimer _lifeTime;
 
     public override void Spawned()
@@ -18,6 +20,7 @@ public class NetworkBullet : NetworkBehaviour
     public void Init()
     {
         _lifeTime = TickTimer.CreateFromSeconds(Runner, _timeLiving);
+        _direction = transform.position.x >= 0f ? -transform.right : transform.right;
     }
 
     public override void FixedUpdateNetwork()
@@ -28,8 +31,6 @@ public class NetworkBullet : NetworkBehaviour
             return;
         }
 
-        Vector3 direction = transform.position.x >= 0f ? -transform.right : transform.right;
-            
-        transform.Translate(direction * _bulletSpeed * Runner.DeltaTime);
+        transform.Translate(_direction * _bulletSpeed * Runner.DeltaTime);
     }
 }
