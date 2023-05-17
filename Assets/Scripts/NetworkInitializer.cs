@@ -16,6 +16,7 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
 
     private NetworkRunner _runner;
+    private InputHandler _inputHandler;
 
 
     #region NETWORK_INTERFACE
@@ -51,14 +52,22 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
-        var data = new InputStructure();
-        float xMove = Input.GetAxis("Horizontal");
-        float yMove = Input.GetAxis("Vertical");
+        if (!_inputHandler && NetworkPlayer.Local)
+        {
+            _inputHandler = NetworkPlayer.Local.Handler;
+        }
 
-        data.moveDirection = new Vector2(xMove, yMove);
-        data.isJumping = Input.GetKeyDown(KeyCode.Space);
+        if (_inputHandler)
+            input.Set(_inputHandler.GetInputs());
 
-        input.Set(data);
+        //var data = new InputStructure();
+        //float xMove = Input.GetAxis("Horizontal");
+        //float yMove = Input.GetAxis("Vertical");
+
+        //data.moveDirection = new Vector2(xMove, yMove);
+        //data.isJumping = Input.GetKeyDown(KeyCode.Space);
+
+        //input.Set(data);
     }
 
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
@@ -74,7 +83,7 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
                 _playerPrefab,
                 new Vector3(
                     UnityEngine.Random.Range(-3, 3),
-                    UnityEngine.Random.Range(-3, 3),
+                    1f,
                     0f),
                 Quaternion.identity,
                 player

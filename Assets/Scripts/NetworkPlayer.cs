@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class NetworkPlayer : NetworkBehaviour
 {
-    public static NetworkPlayer local;
+    public static NetworkPlayer Local;
 
     [SerializeField]
-    private InputHandler _handler;
+    public InputHandler Handler;
 
     public override void Spawned()
     {
         if (Object.HasInputAuthority)
-            local = this;
+            Local = this;
     }
 }

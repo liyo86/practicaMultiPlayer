@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5537530134853701566}
   - component: {fileID: 5537530134853701565}
   - component: {fileID: 5867761147957635849}
+  - component: {fileID: -2198148201864999914}
+  - component: {fileID: 111806060454451967}
   m_Layer: 0
   m_Name: PlayerFusion
   m_TagString: Untagged
@@ -114,6 +116,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 5537530134853701566}
   - {fileID: 5867761147957635849}
+  - {fileID: -2198148201864999914}
   SimulationBehaviours: []
 --- !u!114 &5867761147957635849
 MonoBehaviour:
@@ -129,6 +132,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   _speed: 10
+  _character: {fileID: 0}
+--- !u!114 &-2198148201864999914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537530134853701563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ce11733777a724980a18a42ce54af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  Handler: {fileID: 111806060454451967}
+--- !u!114 &111806060454451967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537530134853701563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f6a1f0793e92840afcdc19915263fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5537530135099261730
 GameObject:
   m_ObjectHideFlags: 0
