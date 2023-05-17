@@ -56,8 +56,7 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
         float yMove = Input.GetAxis("Vertical");
 
         data.moveDirection = new Vector2(xMove, yMove);
-
-        data.Jump = false;
+        data.isJumping = Input.GetKeyDown(KeyCode.Space);
 
         input.Set(data);
     }
@@ -69,14 +68,19 @@ public class NetworkInitializer : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        NetworkObject netObj = runner.Spawn(
-            _playerPrefab,
-            new Vector3(
-                UnityEngine.Random.Range(-3, 3),
-                0f,
-                UnityEngine.Random.Range(-3, 3))
-            );
-        _players.Add(player, netObj);
+        if (runner.IsServer)
+        {
+            NetworkObject netObj = runner.Spawn(
+                _playerPrefab,
+                new Vector3(
+                    UnityEngine.Random.Range(-3, 3),
+                    UnityEngine.Random.Range(-3, 3),
+                    0f),
+                Quaternion.identity,
+                player
+                );
+            _players.Add(player, netObj);
+        }
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)

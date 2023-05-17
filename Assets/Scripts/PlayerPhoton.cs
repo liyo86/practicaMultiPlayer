@@ -1,6 +1,4 @@
 using Fusion;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPhoton : NetworkBehaviour
@@ -8,20 +6,37 @@ public class PlayerPhoton : NetworkBehaviour
     [SerializeField]
     private float _speed = 3f;
 
+    [SerializeField]
     private NetworkCharacterControllerPrototype _character;
 
 
     private void Awake()
     {
-        _character = GetComponent<NetworkCharacterControllerPrototype>();
+        if (!_character)
+            _character = GetComponent<NetworkCharacterControllerPrototype>();
+
+        if (!_character)
+        {
+            Debug.LogError("No hay character controller prototype");
+            this.enabled = false;
+        }
+
     }
 
     public override void FixedUpdateNetwork()
     {
         if (GetInput(out InputStructure input))
         {
-            input.moveDirection.Normalize();
-            _character.Move(_speed * new Vector2(input.moveDirection.x, input.moveDirection.y) * Runner.DeltaTime);
+            Vector2 v = input.moveDirection;
+            _character.Move(_speed * Runner.DeltaTime *
+                v.normalized
+                );
+
+            if (input.isJumping)
+            {
+                _character.Jump();
+            }
+
         }
     }
 
