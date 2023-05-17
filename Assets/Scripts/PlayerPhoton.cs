@@ -60,24 +60,11 @@ public class PlayerPhoton : NetworkBehaviour
                 _character.Jump();
                 _lives--;
             }
-
-            Vector3 _lookDirection = new Vector2(0, 0);
-            Vector3 _lookTransform = transform.position;
-
-            if (transform.position.x > 0f)
-            {
-                _lookDirection = Vector2.left;
-            }
-            else
-            {
-                _lookDirection = Vector2.right;
-            }
-                
             
             if (input.isShooting)
             {
-                Runner.Spawn(_bulletPrefab, transform.position + (_lookDirection) * 0.5f, 
-                    Quaternion.LookRotation(_lookDirection),
+                Runner.Spawn(_bulletPrefab, transform.position, 
+                    Quaternion.identity,
                     Object.InputAuthority,
                     (runner, o) =>
                     {

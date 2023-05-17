@@ -29,6 +29,6 @@ public class NetworkBullet : NetworkBehaviour
         }
             
             
-        transform.Translate(transform.forward * _bulletSpeed * Runner.DeltaTime);
+        transform.Translate(transform.right * _bulletSpeed * Runner.DeltaTime);
     }
 }
